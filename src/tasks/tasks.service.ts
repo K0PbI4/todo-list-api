@@ -12,28 +12,32 @@ export class TasksService {
     ) {}
 
     async getAll(): Promise<TaskDocument[]> {
-        return await this.taskModel.find().exec();
+        return await this.taskModel.find().exec()
     }
 
-    async findById(id: string): Promise<TaskDocument | null> {
+    async findById(id: string): Promise<TaskDocument | null> 
+    {
         try {
-            return await this.taskModel.findById({ _id: id }).exec();
+            return await this.taskModel.findById({ _id: id }).exec()
         } catch (error) {
             console.error(error);
-            return null;
+            return null
         }
     }
 
-    async create(CreateTaskDto: CreateTaskDto): Promise<TaskDocument> {
+    async create(CreateTaskDto: CreateTaskDto): Promise<TaskDocument> 
+    {
         const createdTask = new this.taskModel(CreateTaskDto);
-        return createdTask.save();
+        return createdTask.save()
     }
 
-    async update(id: string, UpdateTaskDto: UpdateTaskDto) {
-        await this.taskModel.updateOne({ _id: id}, UpdateTaskDto).exec();
+    async update(id: string, UpdateTaskDto: UpdateTaskDto) 
+    {
+        await this.taskModel.updateOne({ _id: id}, UpdateTaskDto).exec()
     }
 
-    async delete(id: string) {
-        this.taskModel.deleteOne({_id: id}).exec();
+    async delete(id: string) 
+    {
+        this.taskModel.deleteOne({_id: id}).exec()
     }
 }
