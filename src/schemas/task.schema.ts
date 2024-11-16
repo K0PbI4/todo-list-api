@@ -2,6 +2,7 @@ import * as mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
+//Структура задачи
 export interface ITask 
 {
     title: string;
@@ -9,6 +10,7 @@ export interface ITask
     completed?: boolean
 }
 
+//Схема заадчи для Mongoose
 export const TaskSchema = new Schema<ITask>
 ({
     title: {
@@ -19,4 +21,5 @@ export const TaskSchema = new Schema<ITask>
     completed: Boolean
 });
 
+//Документ задачи, объединяющий ITask и базовые методы документа Mongoose
 export type TaskDocument = mongoose.Document & ITask

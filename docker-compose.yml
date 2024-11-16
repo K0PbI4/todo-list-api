@@ -1,13 +1,13 @@
 version: '3'
 services:
-  app:
+  app:          #Контейнер сервиса
     build: .
     ports:
-      - "3000:3000"
+      - "3000:3000"   #Порт доступа к серверу
     depends_on:
-      - db
+      - db            #Зависимость контейнера сервера от контейнера базы данных
     environment:
       - MONGO_URI=mongodb://db:27017/todo
   
-  db:
+  db:           #Контейнер базы данных
     image: mongo:latest

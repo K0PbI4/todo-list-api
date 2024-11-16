@@ -1,6 +1,6 @@
 export class CreateTaskDto 
 {
-    title: string;
-    description?: string;
-    completed?: boolean
+    title: string;          //Заголовок
+    description?: string;   //Описание
+    completed?: boolean     //Завершённость
 }

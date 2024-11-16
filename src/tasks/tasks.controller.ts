@@ -7,8 +7,8 @@ import { TasksService } from './tasks.service';
 import { CreateTaskDto } from 'src/dtos/create-task.dto';
 import { UpdateTaskDto } from 'src/dtos/update-task.dto';
 
-@Controller('tasks')
-export class TasksController 
+@Controller('tasks')            //Определение части маршрута
+export class TasksController    //Класс, принимающий запросы для сервиса
 {
     constructor(private readonly tasksService: TasksService) {}
 
@@ -25,8 +25,8 @@ export class TasksController
     }
 
     @Post()
-    @UsePipes(new ValidationPipe())
-    async store(@Body() CreateTaskDto: CreateTaskDto)
+    @UsePipes(new ValidationPipe())     //Валидация по DTO
+    async add(@Body() CreateTaskDto: CreateTaskDto)
     {
         return await this.tasksService.create(CreateTaskDto)
     }
